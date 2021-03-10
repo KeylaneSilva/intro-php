@@ -40,6 +40,11 @@ if(strlen($nome) > 40)
     return;
 }
 
+if(!is_numeric($idade))
+{
+    echo "Digite um numero válido";
+}
+
 
 
 
