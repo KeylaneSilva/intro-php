@@ -30,15 +30,22 @@
         {
             echo $mensagemDeErro;
         }
-
-        
-
     ?>
 
     <p>Seu nome: <input type="text" name="nome"></p>
     <p>Sua idade: <input type="text" name="idade"></p>
     <p><input type="submit" value="Enviar dados"></p>
     </form>
+
+    <?php
+
+        $mensagemDeSucesso = isset($_SESSION['mensagem-de-sucesso']) ? $_SESSION['mensagem-de-sucesso'] : '';
+        if(!empty($mensagemDeSucesso))
+        {
+            echo $mensagemDeSucesso;
+        }
+
+    ?>
 
 
 </body>

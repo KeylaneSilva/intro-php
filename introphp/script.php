@@ -23,12 +23,6 @@ if(empty($nome))
     header('location: index.php');
     return;
 }
-else if(empty($idade))
-{
-    $_SESSION['mensagem-de-erro'] = 'A idade não pode ser vazia, preencha novamente';
-    header('location: index.php');
-    return;
-}
 else if(strlen($nome) < 3)
 {
     $_SESSION['mensagem-de-erro'] = 'Nome muito curto, preencha novamente';
@@ -41,6 +35,13 @@ else if(strlen($nome) > 40)
     header('location: index.php');
     return;
 }
+else if(empty($idade))
+{
+    $_SESSION['mensagem-de-erro'] = 'A idade não pode ser vazia, preencha novamente';
+    header('location: index.php');
+    return;
+}
+
 else if(!is_numeric($idade))
 {
     $_SESSION['mensagem-de-erro'] = 'A idade tem que ser um número, preencha novamente';
@@ -55,7 +56,9 @@ if($idade >= 6 && $idade <= 12)
     {
         if($categorias[$i] == 'infantil')
         {
-            echo "O nadador " .$nome. " compete na categoria " .$categorias[$i];
+            $_SESSION['mensagem-de-sucesso'] = "O nadador " .$nome. " compete na categoria " .$categorias[$i];
+            header('location: index.php');
+            return;
         }
     }
 }else if($idade >= 13 && $idade <= 18)
@@ -64,7 +67,9 @@ if($idade >= 6 && $idade <= 12)
     {
         if($categorias[$i] == 'adolescente')
         {
-            echo "O nadador " .$nome. " compete na categoria " .$categorias[$i];
+            $_SESSION['mensagem-de-sucesso'] = "O nadador " .$nome. " compete na categoria " .$categorias[$i];
+            header('location: index.php');
+            return;
         }
     }
 }else if($idade >= 19 && $idade <= 50)
@@ -73,7 +78,9 @@ if($idade >= 6 && $idade <= 12)
     {
         if($categorias[$i] == 'adulto')
         {
-            echo "O nadador " .$nome. " compete na categoria " .$categorias[$i];
+            $_SESSION['mensagem-de-sucesso'] = "O nadador " .$nome. " compete na categoria " .$categorias[$i];
+            header('location: index.php');
+            return;
         }
     }
 }else if($idade >= 51 && $idade <= 100)
@@ -82,8 +89,11 @@ if($idade >= 6 && $idade <= 12)
     {
         if($categorias[$i] == 'idoso')
         {
-            echo "O nadador " .$nome. " compete na categoria " .$categorias[$i];
+            $_SESSION['mensagem-de-sucesso'] = "O nadador " .$nome. " compete na categoria " .$categorias[$i];
+            header('location: index.php');
+            return;
         }
     }
 }
+
 ?>
