@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $categorias = [];
 $categorias[] = 'infantil';
@@ -18,34 +19,34 @@ return 0;
 
 if(empty($nome))
 {
-    echo "Campo nome vazio";
+    $_SESSION['mensagem-de-erro'] = 'O nome não pode ser vazio, preencha novamente';
+    header('location: index.php');
     return;
 }
-
-if(empty($idade))
+else if(empty($idade))
 {
-    echo "Campo idade vazio";
+    $_SESSION['mensagem-de-erro'] = 'A idade não pode ser vazia, preencha novamente';
+    header('location: index.php');
     return;
 }
-
-if(strlen($nome) < 3)
+else if(strlen($nome) < 3)
 {
-    echo "Nome muito pequeno";
+    $_SESSION['mensagem-de-erro'] = 'Nome muito curto, preencha novamente';
+    header('location: index.php');
     return;
 }
-
-if(strlen($nome) > 40)
+else if(strlen($nome) > 40)
 {
-    echo "Nome muito extenso";
+    $_SESSION['mensagem-de-erro'] = 'Nome muito longo, preencha novamente';
+    header('location: index.php');
     return;
 }
-
-if(!is_numeric($idade))
+else if(!is_numeric($idade))
 {
-    echo "Digite um numero válido";
+    $_SESSION['mensagem-de-erro'] = 'A idade tem que ser um número, preencha novamente';
+    header('location: index.php');
+    return;
 }
-
-
 
 
 if($idade >= 6 && $idade <= 12)
