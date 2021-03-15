@@ -32,7 +32,8 @@
             {
             echo $mensagemDeErro;
             }
-        }else
+        }
+        else
         {
             $mensagemDeSucesso = isset($_SESSION['mensagem-de-sucesso']) ? $_SESSION['mensagem-de-sucesso'] : '';
             if(!empty($mensagemDeSucesso))
