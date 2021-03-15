@@ -24,28 +24,29 @@
             $mensagemDeErro = $_SESSION['mensagem-de-erro'];
             $_SESSION['mensagem-de-erro'];
         }
-    */    
-        $mensagemDeErro = isset($_SESSION['mensagem-de-erro']) ? $_SESSION['mensagem-de-erro'] : '';
-        if(empty(!$mensagemDeErro))
+    */   
+        if(isset($_SESSION['mensagem-de-erro']))
         {
+            $mensagemDeErro = isset($_SESSION['mensagem-de-erro']) ? $_SESSION['mensagem-de-erro'] : '';
+            if(empty(!$mensagemDeErro))
+            {
             echo $mensagemDeErro;
+            }
+        }else
+        {
+            $mensagemDeSucesso = isset($_SESSION['mensagem-de-sucesso']) ? $_SESSION['mensagem-de-sucesso'] : '';
+            if(!empty($mensagemDeSucesso))
+            {
+                echo $mensagemDeSucesso;
+            }
         }
+    
     ?>
 
     <p>Seu nome: <input type="text" name="nome"></p>
     <p>Sua idade: <input type="text" name="idade"></p>
     <p><input type="submit" value="Enviar dados"></p>
     </form>
-
-    <?php
-
-        $mensagemDeSucesso = isset($_SESSION['mensagem-de-sucesso']) ? $_SESSION['mensagem-de-sucesso'] : '';
-        if(!empty($mensagemDeSucesso))
-        {
-            echo $mensagemDeSucesso;
-        }
-
-    ?>
 
 
 </body>
