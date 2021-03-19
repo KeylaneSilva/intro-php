@@ -21,10 +21,9 @@
     /*
         if(isset($_SESSION['mensagem-de-erro']))
         {
-            $mensagemDeErro = $_SESSION['mensagem-de-erro'];
-            $_SESSION['mensagem-de-erro'];
+            $mensagemDeErro = $_SESSION['mensagem-de-erro'] = $_SESSION['mensagem-de-erro'];
         }
-    */   
+      
         if(isset($_SESSION['mensagem-de-erro']))
         {
             $mensagemDeErro = isset($_SESSION['mensagem-de-erro']) ? $_SESSION['mensagem-de-erro'] : '';
@@ -41,7 +40,8 @@
                 echo $mensagemDeSucesso;
             }
         }
-    
+    */ 
+        obterMensagemErro();  
     ?>
     <p>Seu nome: <input type="text" name="nome"></p>
     <p>Sua idade: <input type="text" name="idade"></p>
