@@ -23,25 +23,24 @@
         {
             $mensagemDeErro = $_SESSION['mensagem-de-erro'] = $_SESSION['mensagem-de-erro'];
         }
+     */ 
+    if(isset($_SESSION['mensagem-de-erro']))
+    {
+        $mensagemDeErro = isset($_SESSION['mensagem-de-erro']) ? $_SESSION['mensagem-de-erro'] : '';
+        if(empty(!$mensagemDeErro))
+        {
+        echo $mensagemDeErro;
+        }
+    }
+    else
+    {
+        $mensagemDeSucesso = isset($_SESSION['mensagem-de-sucesso']) ? $_SESSION['mensagem-de-sucesso'] : '';
+        if(!empty($mensagemDeSucesso))
+        {
+            echo $mensagemDeSucesso;
+        }
+    }
       
-        if(isset($_SESSION['mensagem-de-erro']))
-        {
-            $mensagemDeErro = isset($_SESSION['mensagem-de-erro']) ? $_SESSION['mensagem-de-erro'] : '';
-            if(empty(!$mensagemDeErro))
-            {
-            echo $mensagemDeErro;
-            }
-        }
-        else
-        {
-            $mensagemDeSucesso = isset($_SESSION['mensagem-de-sucesso']) ? $_SESSION['mensagem-de-sucesso'] : '';
-            if(!empty($mensagemDeSucesso))
-            {
-                echo $mensagemDeSucesso;
-            }
-        }
-    */ 
-        obterMensagemErro();  
     ?>
     <p>Seu nome: <input type="text" name="nome"></p>
     <p>Sua idade: <input type="text" name="idade"></p>
