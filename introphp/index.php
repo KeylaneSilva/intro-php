@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    include "servicos/servicoMensagemSessao.php";
 ?>
 
 <!DOCTYPE html>
@@ -18,15 +18,10 @@
 
     <form action="script.php" method="POST">
     <?php
-    /*
-        if(isset($_SESSION['mensagem-de-erro']))
-        {
-            $mensagemDeErro = $_SESSION['mensagem-de-erro'] = $_SESSION['mensagem-de-erro'];
-        }
-     */ 
+  
     if(isset($_SESSION['mensagem-de-erro']))
     {
-        $mensagemDeErro = isset($_SESSION['mensagem-de-erro']) ? $_SESSION['mensagem-de-erro'] : '';
+        $mensagemDeErro = obterMensagemErro();
         if(empty(!$mensagemDeErro))
         {
         echo $mensagemDeErro;
@@ -34,7 +29,7 @@
     }
     else
     {
-        $mensagemDeSucesso = isset($_SESSION['mensagem-de-sucesso']) ? $_SESSION['mensagem-de-sucesso'] : '';
+        $mensagemDeSucesso = ObterMensagemSucesso();
         if(!empty($mensagemDeSucesso))
         {
             echo $mensagemDeSucesso;
@@ -46,7 +41,6 @@
     <p>Sua idade: <input type="text" name="idade"></p>
     <p><input type="submit" value="Enviar dados"></p>
     </form>
-
-
+    
 </body>
 </html>
