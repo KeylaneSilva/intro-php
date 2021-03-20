@@ -2,8 +2,7 @@
 
 session_start();
 
-
-function defineCategoriaCompetidor(string $nome, string $idade)
+function defineCategoriaCompetidor(string $nome, string $idade) : ?string
 {
     $categorias = [];
     $categorias[] = 'infantil';
@@ -19,7 +18,7 @@ function defineCategoriaCompetidor(string $nome, string $idade)
                 if($categorias[$i] == 'infantil')
                 {
                     setarMensagemSucesso("O nadador " .$nome. " compete na categoria " .$categorias[$i]);
-                    return;
+                    return null;
                 }
             }
         }
@@ -30,7 +29,7 @@ function defineCategoriaCompetidor(string $nome, string $idade)
                 if($categorias[$i] == 'adolescente')
                 {
                     setarMensagemSucesso("O nadador " .$nome. " compete na categoria " .$categorias[$i]);
-                    return;
+                    return null;
                 }
         }
         }
@@ -41,7 +40,7 @@ function defineCategoriaCompetidor(string $nome, string $idade)
                 if($categorias[$i] == 'adulto')
                 {
                     setarMensagemSucesso("O nadador " .$nome. " compete na categoria " .$categorias[$i]);
-                    return;
+                    return null;
                 }
             }
         }
