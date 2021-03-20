@@ -1,24 +1,14 @@
 <?php
-session_start();
+//session_start();
+include "servicos/servicoMensagemSessao.php";
+include "servicos/servicoValidacao.php";
+include "servicos/servicoCategoriaCompetidor";
 
-//print_r($categorias); 
 
 $nome = $_POST['nome'];
 $idade = $_POST['idade'];
-/*
 
-if(validaNome($nome) == false)
-{
-    obterMensagemErro();
-    header('location: index.php');
-    return;
-}else if(validaIdade($idade) == false)
-{
-    obterMensagemErro();
-}else{
-   
-    var_dump($nome); 
-    var_dump($idade);
-    return 0;
-*/
+defineCategoriaCompetidor($nome, $idade);
+header('location: index.php');
+
 ?>
