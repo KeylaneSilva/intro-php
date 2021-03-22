@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 include "servicos/servicoMensagemSessao.php";
 include "servicos/servicoValidacao.php";
 include "servicos/servicoCategoriaCompetidor";
