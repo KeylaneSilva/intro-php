@@ -17,6 +17,7 @@ function defineCategoriaCompetidor(string $nome, string $idade) : ?string
             {
                 if($categorias[$i] == 'infantil')
                 {
+                    removerMensagemErro();
                     setarMensagemSucesso("O nadador " .$nome. " compete na categoria " .$categorias[$i]);
                     return null;
                 }
@@ -28,6 +29,7 @@ function defineCategoriaCompetidor(string $nome, string $idade) : ?string
         {
                 if($categorias[$i] == 'adolescente')
                 {
+                    removerMensagemErro();
                     setarMensagemSucesso("O nadador " .$nome. " compete na categoria " .$categorias[$i]);
                     return null;
                 }
@@ -39,6 +41,7 @@ function defineCategoriaCompetidor(string $nome, string $idade) : ?string
             {
                 if($categorias[$i] == 'adulto')
                 {
+                    removerMensagemErro();
                     setarMensagemSucesso("O nadador " .$nome. " compete na categoria " .$categorias[$i]);
                     return null;
                 }
@@ -46,6 +49,7 @@ function defineCategoriaCompetidor(string $nome, string $idade) : ?string
         }
 
     }else{
-        obterMensagemErro();
+        removerMensageSucesso();
+        return obterMensagemErro();
     }
 }
