@@ -4,7 +4,6 @@ include "servicos/servicoMensagemSessao.php";
 include "servicos/servicoValidacao.php";
 include "servicos/servicoCategoriaCompetidor";
 
-
 $nome = $_POST['nome'];
 $idade = $_POST['idade'];
 
